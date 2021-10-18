@@ -1,26 +1,46 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+import { Container, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 const Register = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    console.log(watch("example"));
+
     return (
-        <div className='mx-auto'>
+        <Container className='d-flex justify-content-center mt-5'>
+            <div>
+                <Form className=' shadow-lg p-3 mb-5 bg-body rounded'>
+                    <h3>Register Here</h3>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Your Name</Form.Label>
+                        <Form.Control type="text" placeholder="Your Name" />
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-                {/* register your input into the hook by invoking the "register" function */}
-                Name: <br />
-                <input defaultValue="test" {...register("example")} /> <br />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
 
-                {/* include validation with required or other standard HTML validation rules */}
-                Email: <br />
-                <input {...register("exampleRequired", { required: true })} />
-                {/* errors will return when field validation fails  */}
-                {errors.exampleRequired && <span>This field is required</span>}
+                    </Form.Group>
 
-                <input type="submit" />
-            </form>
-        </div>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                    <p className='text-center pt-1'>--------------OR---------------</p>
+                    <div className='d-flex justify-content-center pb-2'>
+
+                        <Button >Sign In With Google</Button>
+                    </div>
+                    <p>Already have an account? <Link to='/login'>Login here</Link> </p>
+                </Form>
+            </div>
+        </Container>
     );
 };
 
