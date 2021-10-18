@@ -1,0 +1,16 @@
+.image-fit{
+    height: 580px;
+    object-fit: cover;
+}
+.text-color-new{
+    color: #02123A !important;
+}
+  
+.text-color-caro{
+    color: #9ea4b1 !important;
+}
+.text-color-caros{
+    color: #010307 !important;
+}
+  
+  
