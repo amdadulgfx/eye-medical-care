@@ -1,0 +1,34 @@
+[
+    {
+        "id": 754345,
+        "name": "Dr Ebhingas",
+        "degree": "Ph.D.",
+        "patients": 4000,
+        "clinic": "Almontas Clinic",
+        "picture": "https://i.ibb.co/zRTvxVf/doc1.jpg"
+    },
+    {
+        "id": 754346,
+        "name": "Dr Donald",
+        "degree": "Ph.D.",
+        "patients": 6500,
+        "clinic": "Barmingham Clinic",
+        "picture": "https://i.ibb.co/X39MNv3/doc2.jpg"
+    },
+    {
+        "id": 754347,
+        "name": "Dr Nolan",
+        "degree": "Ph.D.",
+        "patients": 5000,
+        "clinic": "Zianghou Clinic",
+        "picture": "https://i.ibb.co/vhNLHcN/doc3.jpg"
+    },
+    {
+        "id": 754348,
+        "name": "Dr Derec",
+        "degree": "Ph.D.",
+        "patients": 4300,
+        "clinic": "Gulistan Clinic",
+        "picture": "https://i.ibb.co/1RdG3tB/doc4.jpg"
+    }
+]

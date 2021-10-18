@@ -1,0 +1,16 @@
+.service-bg{
+    background-image: url("https://i.ibb.co/QHzkCdK/5172658.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-attachment: fixed; */
+}
+.btn-all{
+    background-color: #001846 !important;
+}
+.btn-all:hover{
+    background-color: #14A6FF !important;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+/* 
+https://i.ibb.co/ZLK6XqL/5197240-ai.jpg
+https://i.ibb.co/QHzkCdK/5172658.jpg */

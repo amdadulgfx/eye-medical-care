@@ -1,0 +1,26 @@
+[
+    {
+        "id": 23091,
+        "name": "Donnie Yen",
+        "disease": "Lasik Patient",
+        "rating": 5,
+        "comment": "The impression is really amazing, I didn't expect to be in this position. Can See really clear, no blurry, no complaints, in my eyes. There are no side effects that I feel. There's no need to be afraid of LASIK, and believe me, EyePlus care center is really good.",
+        "picture": "https://randomuser.me/api/portraits/med/men/68.jpg"
+    },
+    {
+        "id": 23092,
+        "name": "John Doe",
+        "disease": "Glaucoma Patient",
+        "rating": 5,
+        "comment": "The progress that I feel is very good, many of my colleagues and students ask where I am getting treatment, because they are amazed by the progress of the results of my treatment. Thank you EyePLus Care, for the quality service I have received!",
+        "picture": "https://randomuser.me/api/portraits/med/men/67.jpg"
+    },
+    {
+        "id": 23093,
+        "name": "Mike Sugar",
+        "disease": "Lasik Patient",
+        "rating": 5,
+        "comment": "The EyePlus Care service is very good and satisfying. the time to consult a doctor is unlimited. The doctor provides very clear and detailed information so that we become aware of the cause of the disease, treatment and also to prevent it from recurring.",
+        "picture": "https://randomuser.me/api/portraits/med/men/66.jpg"
+    }
+]

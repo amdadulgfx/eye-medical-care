@@ -1,0 +1,38 @@
+[
+    {
+        "id": 3001,
+        "title": "Retina Repair",
+        "description": "In retinal detachment repair, the surgeon first clears away debris and identifies the tear. The retina is reattached using a bubble of air or other gas.",
+        "img": "https://i.ibb.co/k0bBQgq/retinal.jpg"
+    },
+    {
+        "id": 3002,
+        "title": "Glaucoma and Cornea",
+        "description": "The thinner the cornea the higher risk of developing glaucoma. The thinner corneas are also associated with an increased severity of visual field loss.",
+        "img": "https://i.ibb.co/9gHyVpz/images.jpg"
+    },
+    {
+        "id": 3003,
+        "title": "Dry Eye Surgery",
+        "description": "A procedure called punctal occlusion can be used to permanently or temporarily close off your tear drainage channels, allowing you to retain your own natural tears, without the need for eye drops.",
+        "img": "https://i.ibb.co/G255rZh/surgery.jpg"
+    },
+    {
+        "id": 3004,
+        "title": "Cornea Transplant",
+        "description": "A cornea transplant is an operation to remove all or part of a damaged cornea and replace it with healthy donor tissue. ",
+        "img": "https://i.ibb.co/gy0KxN0/iScaning.jpg"
+    },
+    {
+        "id": 3005,
+        "title": "Eye Examination",
+        "description": "An eye examination is a series of tests performed to assess vision and ability to focus on and discern objects. It also includes other tests.",
+        "img": "https://i.ibb.co/6FGdswb/glasses.jpg"
+    },
+    {
+        "id": 3006,
+        "title": "Laser Vision Correction",
+        "description": "LASIK or Lasik (laser-assisted in situ keratomileusis), commonly referred to as laser vision correction, is a type of refractive surgery for the correction of myopia, hyperopia, and astigmatism.",
+        "img": "https://i.ibb.co/MCSw5Sg/laser.jpg"
+    }
+]
