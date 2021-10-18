@@ -29,13 +29,13 @@ const Register = () => {
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" className='btn-all rounded-pill border-0 w-100' type="submit">
                         Submit
                     </Button>
                     <p className='text-center pt-1'>--------------OR---------------</p>
                     <div className='d-flex justify-content-center pb-2'>
 
-                        <Button >Sign In With Google</Button>
+                        <Button className='btn-all rounded-pill border-0 w-100'>Sign In With Google</Button>
                     </div>
                     <p>Already have an account? <Link to='/login'>Login here</Link> </p>
                 </Form>

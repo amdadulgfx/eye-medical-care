@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import './Navigationbar.css'
 const Navigationbar = () => {
-
+    const { user, logOut } = useAuth();
+    console.log(user);
     return (
 
         <Navbar className='navbar-bg' collapseOnSelect expand="lg" sticky="top">
@@ -20,10 +22,17 @@ const Navigationbar = () => {
 
                     </Nav>
                     <Nav>
-                        <Link to='/login'><Button className="bg-primary rounded-pill px-3 me-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Log in</Button></Link>
-                        <Link to="/register">
-                            <Button className="bg-primary rounded-pill px-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Register</Button>
-                        </Link>
+                        {
+                            user?.email ? <Button onClick={logOut} className="bg-primary rounded-pill px-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Log Out</Button> : (
+                                <div>
+                                    <Link to='/login'><Button className="bg-primary rounded-pill px-3 me-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Log in</Button></Link>
+                                    <Link to="/register">
+                                        <Button className="bg-primary rounded-pill px-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Register</Button>
+                                    </Link>
+                                </div>
+
+                            )
+                        }
 
                     </Nav>
                 </Navbar.Collapse>
