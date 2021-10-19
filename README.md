@@ -8,3 +8,4 @@ live site: https://eyeplus-care.web.app/
 * You cannot access service details and appointment unless you login
 * You can get user reviews
 * This whole project made using react , bootstrap and firebase.
+* Also used JSON data and context API
