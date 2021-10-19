@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Navigationbar.css'
 const Navigationbar = () => {
@@ -17,8 +17,8 @@ const Navigationbar = () => {
                         <Link className=" pe-3 fs-5 fw-bold text-white text-decoration-none" to="/home">Home</Link>
                         <Link className=" pe-3 fs-5 fw-bold text-white text-decoration-none" to="/doctors">Doctors</Link>
                         <Link className=" pe-3 fs-5 fw-bold text-white text-decoration-none" to="/services">Services</Link>
-                        <Link className=" pe-3 fs-5 fw-bold text-white text-decoration-none" to="/blog">Blog</Link>
-                        <Link className=" pe-3 fs-5 fw-bold text-white text-decoration-none" to="/about">About Us</Link>
+                        <Link className=" pe-3 fs-5 fw-bold text-white text-decoration-none" to="/appointment">Appointment</Link>
+
 
                     </Nav>
                     <Nav>

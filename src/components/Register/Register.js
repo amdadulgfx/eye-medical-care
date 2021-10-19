@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -7,7 +7,7 @@ const Register = () => {
 
 
     // const [error, setError] = useState('');
-    const { registerNewUser, googleSignIn, setError, error, email, setEmail, password, setPassword, user, setName } = useAuth();
+    const { registerNewUser, googleSignIn, setError, error, email, setEmail, password, setPassword, setName } = useAuth();
 
     const handleNameChange = e => {
         setName(e.target.value)

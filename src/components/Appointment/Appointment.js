@@ -8,7 +8,7 @@ const Appointment = () => {
             <h1 className='text-center py-5'>Book An Appointment</h1>
             <Container className='d-flex justify-content-center '>
                 <Form className='w-75 shadow-lg p-5 mb-5 bg-body form-border  p-5'>
-                    <Row className="mb-3" xs={1} sm={1} md={2} lg={2} className='g-3'>
+                    <Row className="mb-3 g-3" xs={1} sm={1} md={2} lg={2} >
                         <Col>
                             <Form.Group controlId="formGridName">
                                 <Form.Control type="text" placeholder="Your Name" />
@@ -21,7 +21,7 @@ const Appointment = () => {
                         </Col>
                     </Row>
                     <br />
-                    <Row className="mb-3" xs={1} sm={1} md={2} lg={2} className='g-3'>
+                    <Row className="mb-3 g-3" xs={1} sm={1} md={2} lg={2} >
                         <Col>
                             <Form.Group controlId="formGridPhone">
                                 <Form.Control type="number" placeholder="Your Phone" />
@@ -34,7 +34,7 @@ const Appointment = () => {
                         </Col>
                     </Row>
                     <br />
-                    <Row className="mb-3" xs={1} sm={1} md={2} lg={3} className='g-3'>
+                    <Row className="mb-3 g-3" xs={1} sm={1} md={2} lg={3} >
                         <Col>
                             <Form.Group controlId="formGridCity">
                                 <Form.Control type="text" placeholder="Your City" />

@@ -44,7 +44,7 @@ function App() {
             <PrivateRoute path='/appointment'>
               <Appointment></Appointment>
             </PrivateRoute>
-            <Route path='*'>
+            <Route exact path='*'>
               <NotFound></NotFound>
             </Route>
           </Switch>

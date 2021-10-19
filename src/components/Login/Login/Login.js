@@ -6,7 +6,7 @@ import { loginSvg } from '../../../Svg/Svg';
 import './Login.css'
 
 const Login = () => {
-    const { emailSignIn, googleSignIn, email, password, setEmail, setPassword, error, isLoading, setIsloading } = useAuth();
+    const { emailSignIn, googleSignIn, email, password, setEmail, setPassword, error, setIsloading } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
