@@ -1,13 +1,25 @@
 import React from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { loginSvg } from '../../../Svg/Svg';
 import './Login.css'
 
 const Login = () => {
-    const { emailSignIn, googleSignIn, email, password, setEmail, setPassword, error } = useAuth();
-    console.log(error);
+    const { emailSignIn, googleSignIn, email, password, setEmail, setPassword, error, isLoading, setIsloading } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
+
+    const redirect_url = location.state?.from || '/home'
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then((result) => {
+                history.push(redirect_url)
+
+            })
+            .finally(() => setIsloading(false))
+    }
+
     const handleEmailChange = e => {
         setEmail(e.target.value)
     }
@@ -48,7 +60,7 @@ const Login = () => {
                         <div className='d-flex justify-content-center pb-2'>
 
                             <Button className='btn-all rounded-pill border-0 w-100'
-                                onClick={googleSignIn}
+                                onClick={handleGoogleSignIn}
                             >Sign In With Google</Button>
                         </div>
                         <p>Don't have an account? <Link to='/register'>Register here</Link> </p>

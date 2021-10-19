@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { registerSvg } from '../../Svg/Svg';
 const Register = () => {
-    const [name, setName] = useState('');
+
 
     // const [error, setError] = useState('');
-    const { registerNewUser, googleSignIn, setError, error, email, setEmail, password, setPassword } = useAuth();
+    const { registerNewUser, googleSignIn, setError, error, email, setEmail, password, setPassword, name, setName } = useAuth();
 
     const handleNameChange = e => {
         setName(e.target.value)

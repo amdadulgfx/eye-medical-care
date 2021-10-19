@@ -1,5 +1,5 @@
 import initAuthentication from "../components/Login/Firebase/firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 initAuthentication();
@@ -8,38 +8,29 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [isLoading, setIsloading] = useState(true)
     const [error, setError] = useState('');
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
 
     //handle google sign in
     const googleSignIn = () => {
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                const user = result.user;
-                setUser(user)
-            })
-            .catch(error => {
-                const errorMessage = error.message;
-                setError(errorMessage)
-            })
+        setIsloading(true)
+        return signInWithPopup(auth, googleProvider)
+
     }
 
-    //handle log out
-    const logOut = () => {
-        signOut(auth).then(() => {
 
-            setUser({})
-        })
-    }
 
     // register new user 
     const registerNewUser = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
-                // console.log(user);
-                setError('')
+                setError('');
+                setUserName();
+                console.log(user);
             }).catch(error => {
                 setError(error.message)
             })
@@ -56,6 +47,15 @@ const useFirebase = () => {
                 setError(error.message)
             })
     }
+    //update user profile
+    const setUserName = () => {
+        updateProfile(auth.currentUser, { displayName: name })
+            .then(() => {
+
+            }).catch(error => {
+
+            })
+    }
     //special observer 
     useEffect(() => {
         const unsubscribed =
@@ -66,12 +66,19 @@ const useFirebase = () => {
                 else {
                     setUser({})
                 }
+                setIsloading(false)
             })
 
         return () => unsubscribed;
     }, [])
 
+    //handle log out
+    const logOut = () => {
+        signOut(auth).then(() => {
 
+            setUser({})
+        }).finally(() => setIsloading(false));
+    }
 
     return {
         user,
@@ -84,7 +91,11 @@ const useFirebase = () => {
         password,
         setPassword,
         email,
-        setEmail
+        setEmail,
+        name,
+        setName,
+        isLoading,
+        setIsloading
     }
 }
 export default useFirebase;

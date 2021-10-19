@@ -5,6 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import './Navigationbar.css'
 const Navigationbar = () => {
     const { user, logOut } = useAuth();
+    console.log(user?.displayName, 'navbar');
     return (
 
         <Navbar className='navbar-bg' collapseOnSelect expand="lg" sticky="top">
@@ -24,7 +25,7 @@ const Navigationbar = () => {
                         {
                             user.email ?
                                 <div>
-                                    <span className='text-light fw-bold pe-3'> {user?.email}</span>
+                                    <span className='text-light fw-bold pe-3'>Hello, {user.displayName}</span>
                                     <Image style={{ width: '45px', marginRight: '15px' }} roundedCircle src={user?.photoURL} alt={user.name} />
                                     <Button onClick={logOut} className="bg-primary rounded-pill px-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Sign Out</Button> </div>
                                 :
