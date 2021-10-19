@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Navigationbar.css'
@@ -23,7 +23,12 @@ const Navigationbar = () => {
                     </Nav>
                     <Nav>
                         {
-                            user?.email ? <Button onClick={logOut} className="bg-primary rounded-pill px-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Log Out</Button> : (
+                            user?.email ?
+                                <div>
+                                    <span className='text-light fw-bold pe-3'>Hello, {user?.displayName}</span>
+                                    <Image style={{ width: '45px', marginRight: '15px' }} roundedCircle src={user.photoURL} alt={user.name} />
+                                    <Button onClick={logOut} className="bg-primary rounded-pill px-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Log Out</Button> </div>
+                                :
                                 <div>
                                     <Link to='/login'><Button className="bg-primary rounded-pill px-3 me-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Log in</Button></Link>
                                     <Link to="/register">
@@ -31,7 +36,7 @@ const Navigationbar = () => {
                                     </Link>
                                 </div>
 
-                            )
+
                         }
 
                     </Nav>

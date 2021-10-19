@@ -8,6 +8,7 @@ import Footer from './components/Shared/Footer/Footer';
 import Navigationbar from './components/Shared/Navbar/Navigationbar';
 import Register from './components/Register/Register';
 import AuthProvider from './components/contexts/AuthProvider';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -28,9 +29,9 @@ function App() {
             <Route path='/register'>
               <Register></Register>
             </Route>
-            <Route path='/service-details'>
+            <PrivateRoute path='/service-details/:serviceId'>
               <ServiceDetails></ServiceDetails>
-            </Route>
+            </PrivateRoute>
             <Route path='*'>
               <NotFound></NotFound>
             </Route>
