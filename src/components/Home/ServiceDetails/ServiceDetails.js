@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import useData from '../../../hooks/useData';
 
 const ServiceDetails = () => {
@@ -23,7 +24,10 @@ const ServiceDetails = () => {
                         <Card.Text>
                             {myservice[0]?.description}
                         </Card.Text>
+                        <div className='text-center'>
 
+                            <Link to='/appointment' > <Button className=" pe-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0 rounded-pill py-2 ">Get An Appointment</Button>  </Link>
+                        </div>
                     </Card.Body>
                 </Card>
             </div>

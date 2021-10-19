@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Navigationbar.css'
 const Navigationbar = () => {
     const { user, logOut } = useAuth();
-    console.log(user?.displayName, 'navbar');
+
     return (
 
         <Navbar className='navbar-bg' collapseOnSelect expand="lg" sticky="top">
             <Container>
-                <Navbar.Brand href="#home"><img src={'https://i.ibb.co/0GGT4z3/eye-logo-32x32.png'} alt='eye plus logo' /> <b>EYE+</b></Navbar.Brand>
+                <Navbar.Brand className='logo' as={Link} to="/home"><img src={'https://i.ibb.co/0GGT4z3/eye-logo-32x32.png'} alt='eye plus logo' /> <b>EYE+</b></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto  ">
@@ -25,7 +25,9 @@ const Navigationbar = () => {
                         {
                             user.email ?
                                 <div>
-                                    <span className='text-light fw-bold pe-3'>Hello, {user.displayName}</span>
+                                    <span className='text-light fw-bold pe-3'> {
+                                        user.displayName ? 'Hello,' : <Link to='/home'>{window.location.reload()}</Link>
+                                    } {user.displayName}</span>
                                     <Image style={{ width: '45px', marginRight: '15px' }} roundedCircle src={user?.photoURL} alt={user.name} />
                                     <Button onClick={logOut} className="bg-primary rounded-pill px-3 fs-5 fw-bold text-white text-decoration-none btn-all border-0">Sign Out</Button> </div>
                                 :
@@ -42,7 +44,7 @@ const Navigationbar = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
 
     );
 };

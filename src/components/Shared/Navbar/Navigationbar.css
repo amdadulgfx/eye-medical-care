@@ -1,3 +1,10 @@
+.logo{
+    border: 1px solid #0587FF;
+     padding: 5px;
+     border-radius: 10px;
+     color: #001846;
+    font-size: 20px
+}
 .navbar-bg{
     background-color: #16A6FF;
 }

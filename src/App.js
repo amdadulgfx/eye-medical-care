@@ -9,6 +9,7 @@ import Navigationbar from './components/Shared/Navbar/Navigationbar';
 import Register from './components/Register/Register';
 import AuthProvider from './components/contexts/AuthProvider';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import Appointment from './components/Appointment/Appointment';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <PrivateRoute path='/service-details/:serviceId'>
               <ServiceDetails></ServiceDetails>
+            </PrivateRoute>
+            <PrivateRoute path='/appointment'>
+              <Appointment></Appointment>
             </PrivateRoute>
             <Route path='*'>
               <NotFound></NotFound>

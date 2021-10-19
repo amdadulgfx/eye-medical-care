@@ -10,7 +10,7 @@
     {
         "id": 23092,
         "name": "John Doe",
-        "disease": "Glaucoma Patient",
+        "disease": "Retina Patient",
         "rating": 5,
         "comment": "The progress that I feel is very good, many of my colleagues and students ask where I am getting treatment, because they are amazed by the progress of the results of my treatment. Thank you EyePLus Care, for the quality service I have received!",
         "picture": "https://randomuser.me/api/portraits/med/men/67.jpg"
@@ -18,7 +18,7 @@
     {
         "id": 23093,
         "name": "Mike Sugar",
-        "disease": "Lasik Patient",
+        "disease": "Cornea Patient",
         "rating": 5,
         "comment": "The EyePlus Care service is very good and satisfying. the time to consult a doctor is unlimited. The doctor provides very clear and detailed information so that we become aware of the cause of the disease, treatment and also to prevent it from recurring.",
         "picture": "https://randomuser.me/api/portraits/med/men/66.jpg"
