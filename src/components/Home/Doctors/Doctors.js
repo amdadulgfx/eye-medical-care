@@ -7,10 +7,10 @@ const Doctors = () => {
     const { doctors } = useData();
     return (
         <div className='py-5 doctor-bg'>
-            <h1 className='text-center pb-5 pt-5'>Our <span className='text-primary'>High Qualified</span> Doctors</h1>
-            <Container >
+            <h1 className='text-center pb-5 pt-5 '>Our <span className='text-primary'>High Qualified</span> Doctors</h1>
+            <Container className='mb-5'>
 
-                <Row xs={2} md={4} className="g-2">
+                <Row xs={2} md={4} className="g-2 mb-5">
                     {
                         doctors.map(doctor => <Doctor
                             key={doctor.id}
