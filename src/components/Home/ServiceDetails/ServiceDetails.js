@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Container } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import useData from '../../../hooks/useData';
@@ -12,6 +12,7 @@ const ServiceDetails = () => {
     const myservice = services.filter(service => service.id == serviceId)
     // const { title, img, description } = myservice[0]
     return (
+
         <div >
 
             <h6 className='text-center pt-5'> Service ID: {serviceId}</h6>
@@ -32,6 +33,7 @@ const ServiceDetails = () => {
                 </Card>
             </div>
         </div>
+
     );
 };
 
