@@ -5,10 +5,9 @@ import useAuth from '../../hooks/useAuth';
 import { registerSvg } from '../../Svg/Svg';
 const Register = () => {
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+
     // const [error, setError] = useState('');
-    const { registerNewUser, googleSignIn, setError, error } = useAuth();
+    const { registerNewUser, googleSignIn, setError, error, email, setEmail, password, setPassword } = useAuth();
 
     const handleNameChange = e => {
         setName(e.target.value)
@@ -38,7 +37,7 @@ const Register = () => {
             <Row lg={2} md={2} sm={1} xs={1}  >
                 <Col style={{ transform: 'scaleX(-1)' }}>{registerSvg}</Col>
                 <Col className='mx-auto'  >
-                    <Form onSubmit={handleRegistration} className=' w-100 shadow-lg p-5 mb-5 bg-body rounded' >
+                    <Form onSubmit={handleRegistration} className=' w-100 shadow-lg p-5 mb-5 bg-body form-border' >
                         <h3>Register Here</h3>
                         <Form.Floating className="mb-3" >
 

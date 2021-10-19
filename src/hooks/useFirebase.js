@@ -6,7 +6,8 @@ initAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
@@ -79,7 +80,11 @@ const useFirebase = () => {
         logOut,
         registerNewUser,
         setError,
-        emailSignIn
+        emailSignIn,
+        password,
+        setPassword,
+        email,
+        setEmail
     }
 }
 export default useFirebase;

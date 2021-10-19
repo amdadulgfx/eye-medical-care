@@ -6,28 +6,37 @@ import { loginSvg } from '../../../Svg/Svg';
 import './Login.css'
 
 const Login = () => {
-    const { emailSignIn, googleSignIn } = useAuth();
-    const handleEmailSignIn = () => {
-
+    const { emailSignIn, googleSignIn, email, password, setEmail, setPassword, error } = useAuth();
+    console.log(error);
+    const handleEmailChange = e => {
+        setEmail(e.target.value)
+    }
+    const handlePasswordChange = e => {
+        setPassword(e.target.value)
+        // console.log(e.);
+    }
+    const handleEmailSignIn = e => {
+        e.preventDefault();
+        emailSignIn(email, password);
     }
     return (
         <Container className=' mt-5'>
             <Row lg={2} md={2} sm={1} xs={1} >
                 <Col className='mx-auto'  >
-                    <Form className='w-100 shadow-lg p-5 mb-5 bg-body rounded'>
+                    <Form className='w-100 shadow-lg p-5 mb-5 bg-body form-border' >
                         <h3>Please Sign In</h3>
 
                         <Form.Floating className="mb-3" >
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" />
                             <label htmlFor="floatingInputCustom">Email address</label>
                         </Form.Floating>
 
                         <Form.Floating className="mb-3" >
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" />
                             <label htmlFor="floatingInputCustom">Password</label>
                         </Form.Floating>
-
-                        <Button variant="primary" className='btn-all rounded-pill border-0 w-100' onClick={emailSignIn} type="submit">
+                        <p className='text-danger'>{error}</p>
+                        <Button variant="primary" className='btn-all rounded-pill border-0 w-100' onClick={handleEmailSignIn} type="submit">
                             Sign In
                         </Button>
                         <div className='or-signin'>
