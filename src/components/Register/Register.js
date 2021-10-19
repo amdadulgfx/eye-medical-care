@@ -1,45 +1,79 @@
-import React from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import useAuth from '../../hooks/useAuth';
+import { registerSvg } from '../../Svg/Svg';
 const Register = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    // const [error, setError] = useState('');
+    const { registerNewUser, googleSignIn, setError, error } = useAuth();
+
+    const handleNameChange = e => {
+        setName(e.target.value)
+    }
+    const handleEmailChange = e => {
+        setEmail(e.target.value)
+    }
+    const handlePasswordChange = e => {
+        setPassword(e.target.value)
+        // console.log(e.);
+    }
+    const handleRegistration = e => {
+        e.preventDefault();
+        if (password.length < 6) {
+            setError('Password Should be 6 characters')
+            return;
+        }
+        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+            setError('Password should contain 2 uppercase');
+            return;
+        }
+        registerNewUser(email, password)
+    }
 
     return (
-        <Container className='d-flex justify-content-center mt-5'>
-            <div>
-                <Form className=' shadow-lg p-3 mb-5 bg-body rounded'>
-                    <h3>Register Here</h3>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Your Name</Form.Label>
-                        <Form.Control type="text" placeholder="Your Name" />
+        <Container className=' mt-5'>
+            <Row lg={2} md={2} sm={1} xs={1}  >
+                <Col style={{ transform: 'scaleX(-1)' }}>{registerSvg}</Col>
+                <Col className='mx-auto'  >
+                    <Form onSubmit={handleRegistration} className=' w-100 shadow-lg p-5 mb-5 bg-body rounded' >
+                        <h3>Register Here</h3>
+                        <Form.Floating className="mb-3" >
 
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control onBlur={handleNameChange} type="text" placeholder="Your Name" />
+                            <label htmlFor="floatingInputCustom">Your Name</label>
+                        </Form.Floating>
+                        <Form.Floating className="mb-3" >
+                            <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" required />
+                            <label htmlFor="floatingInputCustom">Email address</label>
+                        </Form.Floating>
 
-                    </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
+                        <Form.Floating className="mb-3" >
 
-                    <Button variant="primary" className='btn-all rounded-pill border-0 w-100' type="submit">
-                        Submit
-                    </Button>
-                    <p className='text-center pt-1'>--------------OR---------------</p>
-                    <div className='d-flex justify-content-center pb-2'>
+                            <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" required />
+                            <label htmlFor="floatingInputCustom">Password</label>
+                        </Form.Floating>
+                        <p className='text-danger'>{error}</p>
+                        <Button variant="primary" className='btn-all rounded-pill border-0 w-100' type="submit">
+                            Submit
+                        </Button>
+                        <div className='or-signin'>
+                            <div className='horizontal-line py-2'>
+                                <span className='above-line'>OR</span>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-center pb-2'>
 
-                        <Button className='btn-all rounded-pill border-0 w-100'>Sign In With Google</Button>
-                    </div>
-                    <p>Already have an account? <Link to='/login'>Login here</Link> </p>
-                </Form>
-            </div>
+                            <Button onClick={googleSignIn} className='btn-all rounded-pill border-0 w-100'>Sign In With Google</Button>
+                        </div>
+                        <p>Already have an account? <Link to='/login'>Sign In here</Link> </p>
+                    </Form>
+                </Col>
+
+            </Row>
         </Container>
     );
 };

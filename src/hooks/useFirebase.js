@@ -1,11 +1,13 @@
 import initAuthentication from "../components/Login/Firebase/firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 initAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+
+    const [error, setError] = useState('');
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
 
@@ -17,9 +19,8 @@ const useFirebase = () => {
                 setUser(user)
             })
             .catch(error => {
-                // const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorMessage);
+                setError(errorMessage)
             })
     }
 
@@ -31,6 +32,29 @@ const useFirebase = () => {
         })
     }
 
+    // register new user 
+    const registerNewUser = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                setError('')
+            }).catch(error => {
+                setError(error.message)
+            })
+    }
+    // email sign in 
+    const emailSignIn = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
     //special observer 
     useEffect(() => {
         const unsubscribed =
@@ -50,8 +74,12 @@ const useFirebase = () => {
 
     return {
         user,
+        error,
         googleSignIn,
-        logOut
+        logOut,
+        registerNewUser,
+        setError,
+        emailSignIn
     }
 }
 export default useFirebase;

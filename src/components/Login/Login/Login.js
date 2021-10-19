@@ -1,40 +1,54 @@
 import React from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { loginSvg } from '../../../Svg/Svg';
+import './Login.css'
 
 const Login = () => {
-    const { googleSignIn } = useAuth();
+    const { emailSignIn, googleSignIn } = useAuth();
+    const handleEmailSignIn = () => {
+
+    }
     return (
-        <Container className='d-flex justify-content-center mt-5'>
-            <div>
-                <Form className='shadow-lg p-3 mb-5 bg-body rounded'>
-                    <h3>Please Login</h3>
+        <Container className=' mt-5'>
+            <Row lg={2} md={2} sm={1} xs={1} >
+                <Col className='mx-auto'  >
+                    <Form className='w-100 shadow-lg p-5 mb-5 bg-body rounded'>
+                        <h3>Please Sign In</h3>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Floating className="mb-3" >
+                            <Form.Control type="email" placeholder="Enter email" />
+                            <label htmlFor="floatingInputCustom">Email address</label>
+                        </Form.Floating>
 
-                    </Form.Group>
+                        <Form.Floating className="mb-3" >
+                            <Form.Control type="password" placeholder="Password" />
+                            <label htmlFor="floatingInputCustom">Password</label>
+                        </Form.Floating>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
+                        <Button variant="primary" className='btn-all rounded-pill border-0 w-100' onClick={emailSignIn} type="submit">
+                            Sign In
+                        </Button>
+                        <div className='or-signin'>
+                            <div className='horizontal-line py-2'>
+                                <span className='above-line'>OR</span>
+                            </div>
+                        </div>
 
-                    <Button variant="primary" className='btn-all rounded-pill border-0 w-100' type="submit">
-                        Log In
-                    </Button>
-                    <p className='text-center pt-1'>--------------OR---------------</p>
-                    <div className='d-flex justify-content-center pb-2'>
+                        <div className='d-flex justify-content-center pb-2'>
 
-                        <Button className='btn-all rounded-pill border-0 w-100'
-                            onClick={googleSignIn}
-                        >Sign In With Google</Button>
-                    </div>
-                    <p>Don't have an account? <Link to='/register'>Register here</Link> </p>
-                </Form>
-            </div>
+                            <Button className='btn-all rounded-pill border-0 w-100'
+                                onClick={googleSignIn}
+                            >Sign In With Google</Button>
+                        </div>
+                        <p>Don't have an account? <Link to='/register'>Register here</Link> </p>
+                    </Form>
+                </Col>
+                <Col>
+                    {loginSvg}
+                </Col>
+            </Row>
         </Container>
     );
 };
