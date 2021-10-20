@@ -42,7 +42,7 @@ const Login = () => {
         <Container className=' mt-5'>
             <Row lg={2} md={2} sm={1} xs={1} >
                 <Col className='mx-auto'  >
-                    <Form className='w-100 shadow-lg p-5 mb-5 bg-body form-border' >
+                    <Form onSubmit={handleEmailSignIn} className='w-100 shadow-lg p-5 mb-5 bg-body form-border' >
                         <h3>Please Sign In</h3>
 
                         <Form.Floating className="mb-3" >
@@ -55,7 +55,7 @@ const Login = () => {
                             <label htmlFor="floatingInputCustom">Password</label>
                         </Form.Floating>
                         <p className='text-danger'>{error}</p>
-                        <Button variant="primary" className='btn-all rounded-pill border-0 w-100' onClick={handleEmailSignIn} type="submit">
+                        <Button variant="primary" className='btn-all rounded-pill border-0 w-100' type="submit">
                             Sign In
                         </Button>
                         <div className='or-signin'>
