@@ -4,10 +4,11 @@ import './Appointment.css'
 const Appointment = () => {
 
     return (
-        <div className="form-bg mb-5">
-            <h1 className='text-center py-5'>Book An Appointment</h1>
-            <Container className='d-flex justify-content-center '>
-                <Form className='w-75 shadow-lg p-5 mb-5 bg-body form-border  p-5'>
+        <div className="form-bg pb-5 mb-5">
+            <h1 className='text-center py-5'>Appointment</h1>
+            <Container className='d-flex justify-content-center mb-3'>
+                <Form className='w-75 shadow-lg p-3 mb-5 bg-body form-border'>
+                    <h4 >Book An Appointment</h4>
                     <Row className="mb-3 g-3" xs={1} sm={1} md={2} lg={2} >
                         <Col>
                             <Form.Group controlId="formGridName">
@@ -43,7 +44,7 @@ const Appointment = () => {
                         <Col>
                             <Form.Group controlId="formGridState">
                                 <Form.Select defaultValue="Choose...">
-                                    <option>Choose...</option>
+                                    <option>Choose State...</option>
                                     <option>California</option>
                                     <option>New York</option>
                                     <option>London</option>
@@ -71,7 +72,7 @@ const Appointment = () => {
 
                     <div className='text-center'>
 
-                        <Button className='btn-all border-0 rounded-pill px-4' type="submit">
+                        <Button className='btn-all border-0 rounded-pill px-4' type="button">
                             Get An Appointment
                         </Button>
                     </div>

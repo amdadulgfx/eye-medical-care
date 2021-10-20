@@ -7,8 +7,10 @@ const TopService = ({ service }) => {
     return (
 
         <Col>
-            <Card>
+
+            <Card className='hover-shadow  w-100 shadow-lg  bg-body form-border border-0' >
                 <Card.Img variant="top" src={img} />
+
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text className='text-secondary'>
@@ -19,6 +21,7 @@ const TopService = ({ service }) => {
                     </Link>
                 </Card.Body>
             </Card>
+
         </Col>
 
     );

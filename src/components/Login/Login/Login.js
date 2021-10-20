@@ -6,7 +6,7 @@ import { loginSvg } from '../../../Svg/Svg';
 import './Login.css'
 
 const Login = () => {
-    const { emailSignIn, googleSignIn, email, password, setEmail, setPassword, error, setIsloading } = useAuth();
+    const { emailSignIn, googleSignIn, email, password, setEmail, setPassword, error, setIsloading, setError } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
@@ -25,11 +25,18 @@ const Login = () => {
     }
     const handlePasswordChange = e => {
         setPassword(e.target.value)
-        // console.log(e.);
     }
     const handleEmailSignIn = e => {
         e.preventDefault();
-        emailSignIn(email, password);
+        emailSignIn(email, password)
+            .then(result => {
+                history.push(redirect_url)
+                setError('')
+            })
+            .catch(error => {
+                setError(error.message)
+            }).finally(() => setIsloading(false))
+
     }
     return (
         <Container className=' mt-5'>
@@ -39,12 +46,12 @@ const Login = () => {
                         <h3>Please Sign In</h3>
 
                         <Form.Floating className="mb-3" >
-                            <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" />
+                            <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" required />
                             <label htmlFor="floatingInputCustom">Email address</label>
                         </Form.Floating>
 
                         <Form.Floating className="mb-3" >
-                            <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" />
+                            <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" aria-required />
                             <label htmlFor="floatingInputCustom">Password</label>
                         </Form.Floating>
                         <p className='text-danger'>{error}</p>
